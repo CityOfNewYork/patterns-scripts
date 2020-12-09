@@ -1,7 +1,6 @@
 'use strict';
 
-import Forms from '@nycopportunity/patterns-scripts/src/forms/forms';
-
+import Forms from '@nycopportunity/pttrn-scripts/src/forms/forms';
 import serialize from 'for-cerial';
 
 /**
