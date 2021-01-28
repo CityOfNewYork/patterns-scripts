@@ -6,7 +6,7 @@ The Spinner Utility is a generic animation used to indicate a process or loading
 
 The Spinner uses CSS animation so the spinner stylesheet should be imported.
 
-    @use '@nycopportunity/patterns-framework/src/utilities/spinner/spinner';
+    @use '@nycopportunity/pttrn-scripts/src/spinner/spinner';
 
 ### Markup
 
@@ -20,7 +20,7 @@ Either copy and paste the following spinner markup into your document...
 
 ... or programatically add the Spinner markup using the included script.
 
-    import Spinner from '@nycopportunity/patterns-framework/src/utilities/spinner/spinner';
+    import Spinner from '@nycopportunity/pttrn-scripts/src/spinner/spinner';
 
     let el = document.querySelector('[data-js="my-loading-container"]');
     let spinner = new Spinner();

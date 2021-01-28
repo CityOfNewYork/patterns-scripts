@@ -6,7 +6,7 @@ Copy value of an input to the clipboard. It will focus on the input an toggle th
 
 ### JavaScript
 
-    import Copy from '@nycopportunity/patterns-framework/src/utilities/copy/copy';
+    import Copy from '@nycopportunity/pttrn-scripts/src/copy/copy';
 
     new Copy();
 

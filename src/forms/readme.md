@@ -6,7 +6,7 @@ The Forms Utility uses HTML5 validation to detect invalid input values and displ
 
 A basic sample script;
 
-    import Forms from '@nycopportunity/patterns-framework/src/forms/forms';
+    import Forms from '@nycopportunity/pttrn-scripts/src/forms/forms';
 
     /**
       * Pass the DOM element to the form.

@@ -6,7 +6,7 @@ The Window Vh Utility sets the css variable `--100vh` to the size of the window'
 
 ### JavaScript
 
-    import WindowVh from '@nycopportunity/patterns-framework/src/utilities/window-vh/window-vh';
+    import WindowVh from '@nycopportunity/pttrn-scripts/src/window-vh/window-vh';
 
     new WindowVh();
 

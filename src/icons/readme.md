@@ -4,7 +4,7 @@ The Icons Utility fetches an SVG sprite onto the page for displaying icons. This
 
 ## Usage
 
-    import Icons from '@nycopportunity/patterns-framework/src/utilities/icons/icons';
+    import Icons from '@nycopportunity/pttrn-scripts/src/icons/icons';
 
     new Icons();
 

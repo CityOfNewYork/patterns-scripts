@@ -17,7 +17,7 @@ This is a shortcut for fetching localized strings on ACCESS NYC. There is a glob
 
 ### JavaScript
 
-    import localize from '@nycopportunity/patterns-framework/src/utilities/localize/localize';
+    import localize from '@nycopportunity/pttrn-scripts/src/localize/localize';
 
     let validationMessage = localize('VALID_REQUIRED');
 

@@ -6,7 +6,7 @@ The Toggle utility uses JavaScript to expand and collapse elements based on user
 
 ### JavaScript
 
-    import Toggle from '@nycopportunity/patterns-framework/src/utilities/toggle/toggle';
+    import Toggle from '@nycopportunity/pttrn-scripts/src/toggle/toggle';
 
     new Toggle();
 
@@ -172,7 +172,7 @@ Property     | Type           | Description
 
     'use strict';
 
-    import Toggle from '@nycopportunity/patterns-framework/src/utilities/toggle/toggle';
+    import Toggle from '@nycopportunity/pttrn-scripts/src/toggle/toggle';
 
     class MobileMenu {
       constructor() {

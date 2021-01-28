@@ -6,7 +6,7 @@ The Newsletter Utility uses JavaScript to enhance an [embedded Mailchimp form](h
 
 ### JavaScript
 
-    import Newsletter from '@nycopportunity/patterns-framework/src/utilities/newsletter/newsletter';
+    import Newsletter from '@nycopportunity/pttrn-scripts/src/newsletter/newsletter';
 
     let newsletter = new Newsletter(document.querySelector(Newsletter.selector));
 

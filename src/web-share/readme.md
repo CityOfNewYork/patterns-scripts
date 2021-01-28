@@ -6,7 +6,7 @@ The Web Share Utility invokes the [`navigator.share()`](https://developer.mozill
 
 ### JavaScript
 
-    import WebShare from '@nycopportunity/patterns-framework/src/web-share/web-share';
+    import WebShare from '@nycopportunity/pttrn-scripts/src/web-share/web-share';
 
     new WebShare({
       callback: () => {

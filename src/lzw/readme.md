@@ -4,7 +4,7 @@
 
 ## Usage
 
-    import LZW from '@nycopportunity/patterns-framework/src/utilities/lzw/lzw';
+    import LZW from '@nycopportunity/pttrn-scripts/src/lzw/lzw';
 
 ### Encode
 

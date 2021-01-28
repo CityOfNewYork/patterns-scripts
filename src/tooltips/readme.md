@@ -6,7 +6,7 @@ The Tooltip Utility visually reveals supplementary text for an element and uses 
 
 ### JavaScript
 
-    import Tooltips from '@nycopportunity/patterns-framework/src/tooltips/tooltips';
+    import Tooltips from '@nycopportunity/pttrn-scripts/src/tooltips/tooltips';
 
     let elements = document.querySelectorAll(Tooltips.selector);
 

@@ -4,7 +4,7 @@ Tracking bus for Google Analytics event tracking and Webtrends multitrack. If gl
 
 ## Usage
 
-    import Track from '@nycopportunity/patterns-framework/src/utilities/track/track';
+    import Track from '@nycopportunity/pttrn-scripts/src/track/track';
 
     new Track();
 
