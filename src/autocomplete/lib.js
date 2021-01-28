@@ -5,7 +5,7 @@ import jaroWinkler from './jaroWinkler.js';
 import memoize from './memoize.js';
 
 /**
- * Autocomplete for autocomplete.
+ * Autocomplete for Lib.
  * Forked and modified from https://github.com/xavi/miss-plete
  */
 class Lib {
@@ -22,11 +22,11 @@ class Lib {
       'selected': (settings.hasOwnProperty('selected')) ?
         settings.selected : false,
       'score': (settings.hasOwnProperty('score')) ?
-        settings.score : memoize(Autocomplete.score),
+        settings.score : memoize(Lib.score),
       'listItem': (settings.hasOwnProperty('listItem')) ?
-        settings.listItem : Autocomplete.listItem,
+        settings.listItem : Lib.listItem,
       'getSiblingIndex': (settings.hasOwnProperty('getSiblingIndex')) ?
-        settings.getSiblingIndex : Autocomplete.getSiblingIndex
+        settings.getSiblingIndex : Lib.getSiblingIndex
     };
 
     this.scoredOptions = null;
@@ -34,9 +34,9 @@ class Lib {
     this.ul = null;
     this.highlighted = -1;
 
-    this.SELECTORS = Autocomplete.selectors;
-    this.STRINGS = Autocomplete.strings;
-    this.MAX_ITEMS = Autocomplete.maxItems;
+    this.SELECTORS = Lib.selectors;
+    this.STRINGS = Lib.strings;
+    this.MAX_ITEMS = Lib.maxItems;
 
     window.addEventListener('keydown', (e) => {
       this.keydownEvent(e);
@@ -437,7 +437,7 @@ class Lib {
 }
 
 /** Selectors for the Autocomplete class. */
-Autocomplete.selectors = {
+Lib.selectors = {
   'HIGHLIGHT': 'input-autocomplete__highlight',
   'OPTIONS': 'input-autocomplete__options',
   'ACTIVE_DESCENDANT': 'input-autocomplete__selected',
@@ -445,7 +445,7 @@ Autocomplete.selectors = {
 };
 
 /**  */
-Autocomplete.strings = {
+Lib.strings = {
   'DIRECTIONS_TYPE':
     'Start typing to generate a list of potential input options',
   'DIRECTIONS_REVIEW': [
@@ -457,6 +457,6 @@ Autocomplete.strings = {
 };
 
 /** Maximum amount of results to be returned. */
-Autocomplete.maxItems = 5;
+Lib.maxItems = 5;
 
-export default Autocomplete;
+export default Lib;
