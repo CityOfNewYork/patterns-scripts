@@ -1,7 +1,7 @@
 {
   "name": "@nycopportunity/pttrn-scripts",
   "nice": "Patterns Scripts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A set of common utility ES modules to help keep scripting DRY and support accessibility",
   "author": "products@nycopportunity.nyc.gov",
   "license": "GPL-3.0+",
