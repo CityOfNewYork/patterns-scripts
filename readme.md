@@ -27,6 +27,7 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 ### Docs
 
 * [Copy](src/copy) - Click copy to clipboard utility
+* [Dialog](src/dialog) - Dialog utility
 * [Forms](src/forms) - Form validation and other form utilities
 * [Icons](src/icons) - Fetches an svg sprite and adds it to the DOM
 * [Localize](src/localize) - Retrieve localized strings from a global constant
