@@ -3,18 +3,18 @@
 import Toggle from '@nycopportunity/pttrn-scripts/src/toggle/toggle';
 
 /**
- * @class  Dialogue
+ * @class  Dialog
  *
  * Usage
  *
  * Element Attributes. Either <a> or <button>
  *
- * @attr  data-js="dialogue"         Instantiates the toggling method
- * @attr  aria-controls=""           Targets the id of the dialogue
- * @attr  aria-expanded="false"      Declares target closed/open when toggled
- * @attr  data-dialogue="open"       Designates the primary opening element of the dialogue
- * @attr  data-dialogue="close"      Designates the primary closing element of the dialogue
- * @attr  data-dialogue-lock="true"  Wether to lock screen scrolling when drodown is open
+ * @attr  data-js="dialog"         Instantiates the toggling method
+ * @attr  aria-controls=""         Targets the id of the dialog
+ * @attr  aria-expanded="false"    Declares target closed/open when toggled
+ * @attr  data-dialog="open"       Designates the primary opening element of the dialog
+ * @attr  data-dialog="close"      Designates the primary closing element of the dialog
+ * @attr  data-dialog-lock="true"  Wether to lock screen scrolling when dialog is open
  *
  * Target Attributes. Any <element>
  *
@@ -22,26 +22,26 @@ import Toggle from '@nycopportunity/pttrn-scripts/src/toggle/toggle';
  * @attr  class="hidden"      Hidden class
  * @attr  aria-hidden="true"  Declares target open/closed when toggled
  */
-class Dialogue {
+class Dialog {
   /**
-   * @constructor  Instantiates dialogue and toggle method
+   * @constructor  Instantiates dialog and toggle method
    *
-   * @return  {Object}  The instantiated dialogue with properties
+   * @return  {Object}  The instantiated dialog with properties
    */
   constructor() {
-    this.selector = Dialogue.selector;
+    this.selector = Dialog.selector;
 
-    this.selectors = Dialogue.selectors;
+    this.selectors = Dialog.selectors;
 
-    this.classes = Dialogue.classes;
+    this.classes = Dialog.classes;
 
-    this.dataAttrs = Dialogue.dataAttrs;
+    this.dataAttrs = Dialog.dataAttrs;
 
     this.toggle = new Toggle({
       selector: this.selector,
       after: (toggle) => {
         let active = toggle.target.classList.contains(Toggle.activeClass);
-        console.dir(toggle.element.dataset[this.dataAttrs.LOCK]);
+
         // Lock the body from scrolling if lock attribute is present
         if (active && toggle.element.dataset[this.dataAttrs.LOCK] === 'true') {
           // Scroll to the top of the page
@@ -49,14 +49,14 @@ class Dialogue {
 
           // Prevent scrolling on the body
           document.querySelector('body').classList.add(this.classes.OVERFLOW);
-          console.dir(toggle.focusable);
+
           // When the last focusable item in the list looses focus loop to the first
           toggle.focusable.item(toggle.focusable.length - 1)
             .addEventListener('blur', () => {
               toggle.focusable.item(0).focus();
             });
         } else {
-          // Remove if all other dialogue body locks are inactive
+          // Remove if all other dialog body locks are inactive
           let locks = document.querySelectorAll([
               this.selector,
               this.selectors.locks,
@@ -86,23 +86,23 @@ class Dialogue {
 }
 
 /** @type  {String}  Main DOM selector */
-Dialogue.selector = '[data-js*=\"dialogue\"]';
+Dialog.selector = '[data-js*=\"dialog\"]';
 
 /** @type  {Object}  Additional selectors used by the script */
-Dialogue.selectors = {
-  CLOSE: '[data-dialogue*="close"]',
-  OPEN: '[data-dialogue*="open"]',
-  LOCKS: '[data-dialogue-lock="true"]'
+Dialog.selectors = {
+  CLOSE: '[data-dialog*="close"]',
+  OPEN: '[data-dialog*="open"]',
+  LOCKS: '[data-dialog-lock="true"]'
 };
 
 /** @type  {Object}  Data attribute namespaces */
-Dialogue.dataAttrs = {
-  LOCK: 'dialogueLock'
+Dialog.dataAttrs = {
+  LOCK: 'dialogLock'
 };
 
 /** @type  {Object}  Various classes used by the script */
-Dialogue.classes = {
+Dialog.classes = {
   OVERFLOW: 'overflow-hidden'
 };
 
-export default Dialogue;
+export default Dialog;
