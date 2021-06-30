@@ -137,5 +137,3 @@ body {
   position: static !important;
 }
 ```
-
-The script expects the icon sprite path to be `./icons.svg` (relative to the displayed page). To overwrite this, pass a path to the method. This uses the `fetch` method which will require a polyfill for IE11 (and other older browser) support. The script does not ship with a polyfill by default.
