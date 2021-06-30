@@ -29,6 +29,7 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 * [Copy](src/copy) - Click copy to clipboard utility
 * [Dialog](src/dialog) - Dialog utility
 * [Forms](src/forms) - Form validation and other form utilities
+* [Google Translate Element](src/google-translate-element) - Custom Google Translate Selector
 * [Icons](src/icons) - Fetches an svg sprite and adds it to the DOM
 * [Localize](src/localize) - Retrieve localized strings from a global constant
 * [LZW](src/lzw) - Compression algorithm for encoding strings of data
