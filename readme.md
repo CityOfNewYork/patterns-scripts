@@ -26,7 +26,7 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 
 ### Docs
 
-* [Copy](src/copy) - Click copy to clipboard utility
+* [Copy](src/copy) - A wrapper around the Navigator Clipboard API that creates a click to copy to clipboard button
 * [Dialog](src/dialog) - Dialog utility
 * [Forms](src/forms) - Form validation and other form utilities
 * [Google Translate Element](src/google-translate-element) - Custom Google Translate Selector
@@ -34,9 +34,10 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 * [Localize](src/localize) - Retrieve localized strings from a global constant
 * [LZW](src/lzw) - Compression algorithm for encoding strings of data
 * [Newsletter](src/newsletter) - Enhances an embedded Mailchimp form with validation
+* [Observe](src/observe) - A wrapper around the Intersection Observer API that creates an scroll watch on a scrollable element
 * [Spinner](src/spinner) - Generic process or loading spinner animation
 * [Toggle](src/toggle) - Multi-purpose element visibility toggle
 * [Tooltips](src/tooltips) - Accessible tooltip toggle and positioning
 * [Track](src/track) - Auto click tracking for Google Analytics and Webtrends
-* [Web Share](src/web-share) - Web Share API button
+* [Web Share](src/web-share) - A wrapper around the Navigator Share API that creates a web sharing button
 * [Window Vh](src/window-vh) - CSS variable setting for 100vh for iOS
