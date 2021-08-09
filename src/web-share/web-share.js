@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Uses the Share API to t
+ * A wrapper around the navigator.share() API
  */
 class WebShare {
   /**
