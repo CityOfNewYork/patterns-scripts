@@ -1,6 +1,6 @@
 # Google Translate Element
 
-Enables a custom language selector by maps change events from a select element to the Google Translate Widget. Observes the html lang attribute and switches stylesheets based on the changed language (if the stylesheet exists).
+Enables a custom language selector by mapping change events from a select element to the Google Translate Widget. Observes the html lang attribute and switches stylesheets based on the changed language (if the stylesheet is provided).
 
 ## Usage
 
