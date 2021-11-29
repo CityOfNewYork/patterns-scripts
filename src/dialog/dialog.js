@@ -48,7 +48,7 @@ class Dialog {
           window.scroll(0, 0);
 
           // Prevent scrolling on the body
-          document.querySelector('body').classList.add(this.classes.OVERFLOW);
+          document.querySelector('body').style.overflow = 'hidden';
 
           // When the last focusable item in the list looses focus loop to the first
           toggle.focusable.item(toggle.focusable.length - 1)
@@ -64,7 +64,7 @@ class Dialog {
             ].join(''));
 
           if (locks.length === 0) {
-            document.querySelector('body').classList.remove(this.classes.OVERFLOW);
+            document.querySelector('body').style.overflow = '';
           }
         }
 
@@ -98,11 +98,6 @@ Dialog.selectors = {
 /** @type  {Object}  Data attribute namespaces */
 Dialog.dataAttrs = {
   LOCK: 'dialogLock'
-};
-
-/** @type  {Object}  Various classes used by the script */
-Dialog.classes = {
-  OVERFLOW: 'overflow-hidden'
 };
 
 export default Dialog;
