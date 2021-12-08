@@ -27,7 +27,7 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 ### Docs
 
 * [Copy](src/copy) - A wrapper around the Navigator Clipboard API that creates a click to copy to clipboard button
-* [Dialog](src/dialog) - Dialog utility
+* [Dialog](src/dialog) - A utility for creating modal or non-modal dialogs
 * [Forms](src/forms) - Form validation and other form utilities
 * [Google Translate Element](src/google-translate-element) - Custom Google Translate Selector
 * [Icons](src/icons) - Fetches an svg sprite and adds it to the DOM
@@ -36,8 +36,9 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 * [Newsletter](src/newsletter) - Enhances an embedded Mailchimp form with validation
 * [Observe](src/observe) - A wrapper around the Intersection Observer API that creates an scroll watch on a scrollable element
 * [Spinner](src/spinner) - Generic process or loading spinner animation
+* [Themes](src/themes) - A CSS theme cycling utility that toggles the document classname and sets the user preference to local storage
 * [Toggle](src/toggle) - Multi-purpose element visibility toggle
-* [Tooltips](src/tooltips) - Accessible tooltip toggle and positioning
+* [Tooltips](src/tooltips) - An accessible tooltip toggle and positioning
 * [Track](src/track) - Auto click tracking for Google Analytics and Webtrends
 * [Web Share](src/web-share) - A wrapper around the Navigator Share API that creates a web sharing button
-* [Window Vh](src/window-vh) - CSS variable setting for 100vh for iOS
+* [Window Vh](src/window-vh) - Sets the CSS Custom Property `--100vh` to the viewport's true height as a workaround for iOS 100vh value

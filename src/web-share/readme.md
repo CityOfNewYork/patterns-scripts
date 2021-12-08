@@ -6,19 +6,23 @@ The Web Share Utility invokes the [`navigator.share()`](https://developer.mozill
 
 ### JavaScript
 
-    import WebShare from '@nycopportunity/pttrn-scripts/src/web-share/web-share';
+```javascript
+import WebShare from '@nycopportunity/pttrn-scripts/src/web-share/web-share';
 
-    new WebShare({
-      callback: () => {
-        // Designate a callback function for a successful share here
-      },
-      fallback: () => {
-        // Designate a fallback method for browsers that do not support the Web Share API here
-      }
-    });
+new WebShare({
+  callback: () => {
+    // Designate a callback function for a successful share here
+  },
+  fallback: () => {
+    // Designate a fallback method for browsers that do not support the Web Share API here
+  }
+});
+```
 
 ### Markup
 
-    <button data-js="web-share" data-web-share='{"title":"Page Title","text":"Description to of the shared content.","url":"https://url/to/share"}'>
-      Share
-    </button>
+```html
+<button data-js="web-share" data-web-share='{"title": "Page Title", "text":"Description to of the shared content.", "url":"https://url/to/share"}'>
+  Share
+</button>
+```
