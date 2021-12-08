@@ -9,8 +9,8 @@ class Themes {
   /**
    * @constructor
    *
-   * @param   {Object}  s  The settings object, may include 'storage', 'selectors',
-   *                       or 'theme' attributes
+   * @param   {Object}  s  The settings object, may include 'storage',
+   *                       'selectors', or 'theme' attributes
    *
    * @return  {Class}      The constructed instance of Themes.
    */
@@ -26,6 +26,10 @@ class Themes {
       Object.assign(Themes.selectors, s.selectors) : Themes.selectors;
 
     this.themes = (s.hasOwnProperty('themes')) ? s.themes : Themes.themes;
+
+    this.after = (s.hasOwnProperty('after')) ? s.after : Themes.after;
+
+    this.before = (s.hasOwnProperty('before')) ? s.before : Themes.before;
 
     /**
      * Get initial user preference
@@ -43,6 +47,10 @@ class Themes {
     document.querySelector('body').addEventListener('click', event => {
       if (!event.target.matches(this.selectors.TOGGLE))
         return;
+
+      this.target = event.target;
+
+      this.before(this);
 
       this.click(event);
     });
@@ -66,14 +74,33 @@ class Themes {
       return [...document.documentElement.classList].includes(item)
     });
 
+    // Find the starting index
     let start = (intersection.length === 0) ? 0 : cycle.indexOf(intersection[0]);
     let theme = (typeof cycle[start + 1] === 'undefined') ? cycle[0] : cycle[start + 1];
 
     // Toggle elements
-    document.documentElement.classList.remove(cycle[start]);
-    event.target.classList.remove(`${cycle[start]}${this.selectors.active}`);
+    this.remove(this.themes.find(t => t.classname === cycle[start]))
+      .set(this.themes.find(t => t.classname === theme));
 
-    this.set(this.themes.find(t => t.classname === theme ));
+    return this;
+  }
+
+  /**
+   * The remove method for the theme. Resets all element classes and local storage.
+   *
+   * @param   {Object}  theme  The theme to remove
+   *
+   * @return  {Class}          The Themes instance
+   */
+  remove(theme) {
+    document.documentElement.classList.remove(theme.classname);
+
+    document.querySelectorAll(this.selectors.TOGGLE)
+      .forEach(element => {
+        element.classList.remove(`${theme.classname}${this.selectors.ACTIVE}`);
+      });
+
+    localStorage.removeItem(this.storage.THEME);
 
     return this;
   }
@@ -86,19 +113,23 @@ class Themes {
    * @return  {Class}          The Themes instance
    */
   set(theme) {
-    document.documentElement.classList.add(theme.classname);
+    this.theme = theme;
+
+    document.documentElement.classList.add(this.theme.classname);
 
     document.querySelectorAll(this.selectors.TOGGLE)
       .forEach(element => {
-        element.classList.add(`${theme.classname}${this.selectors.active}`);
+        element.classList.add(`${this.theme.classname}${this.selectors.ACTIVE}`);
       });
 
     document.querySelectorAll(this.selectors.LABEL)
       .forEach(element => {
-        element.textContent = theme.label;
+        element.textContent = this.theme.label;
       });
 
     localStorage.setItem(this.storage.THEME, JSON.stringify(theme));
+
+    this.after(this);
 
     return this;
   }
@@ -143,5 +174,19 @@ Themes.themes = [
     classname: 'dark'
   }
 ];
+
+/**
+ * Before hook
+ *
+ * @return  {Function}  Triggers before the click event.
+ */
+Themes.before = () => {};
+
+/**
+ * After hook
+ *
+ * @return  {Function}  Triggers after the click event.
+ */
+Themes.after = () => {};
 
 export default Themes;
