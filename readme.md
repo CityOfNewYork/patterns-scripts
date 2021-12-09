@@ -28,6 +28,7 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 
 * [Copy](src/copy) - A wrapper around the Navigator Clipboard API that creates a click to copy to clipboard button
 * [Dialog](src/dialog) - A utility for creating modal or non-modal dialogs
+* [Direction](src/direction) - A utility for setting the reading direction of the document and saves the user preference to local storage
 * [Forms](src/forms) - Form validation and other form utilities
 * [Google Translate Element](src/google-translate-element) - Custom Google Translate Selector
 * [Icons](src/icons) - Fetches an svg sprite and adds it to the DOM
@@ -36,7 +37,7 @@ Some utilities support scripting only and do not have HTML counterparts. See doc
 * [Newsletter](src/newsletter) - Enhances an embedded Mailchimp form with validation
 * [Observe](src/observe) - A wrapper around the Intersection Observer API that creates an scroll watch on a scrollable element
 * [Spinner](src/spinner) - Generic process or loading spinner animation
-* [Themes](src/themes) - A CSS theme cycling utility that toggles the document classname and sets the user preference to local storage
+* [Themes](src/themes) - A CSS theme cycling utility that toggles the document classname and saves the user preference to local storage
 * [Toggle](src/toggle) - Multi-purpose element visibility toggle
 * [Tooltips](src/tooltips) - An accessible tooltip toggle and positioning
 * [Track](src/track) - Auto click tracking for Google Analytics and Webtrends
