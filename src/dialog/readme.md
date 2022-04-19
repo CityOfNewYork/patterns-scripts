@@ -4,6 +4,8 @@ The Dialog Utility provides functionality to dismissible [dialogs](https://devel
 
 * Focus will shift from the "open" toggle element to a designated "close" toggle element within the target dialog. These elements are given the data attributes `data-dialog="open"` or `data-dialog="close"` respectively.
 
+* An element alternative to the `data-dialog="open"` can be given focus shift when the dialog closes using the `[data-dialog-focus-on-close="{{ ID }}"]`.
+
 * The utility can trap the focus of the page and prevent scrolling on the body element if they occupy the full view of the page. This prevents shifting focusing on elements outside of the dialog. The data attribute `data-dialog-lock="true"` on the opening toggling element designates this behavior. This requires the presence of the `data-dialog="close"` element.
 
 ## Usage
@@ -50,20 +52,21 @@ It is important to use the appropriate aria attributes according to the specific
 
 ### Attribute Configuration
 
-The markup will use the same attributes as the [Toggle Utility](../toggle) but the namespace `toggle` is replace with `dialog`. For example; `data-js="toggle"` becomes `data-js="dialog"`. There are some additional attributes for the open and close elements.
+The markup will use the same attributes as the [Toggle Utility](../toggle) but the namespace `toggle` is replaced with `dialog`. For example; `data-js="toggle"` becomes `data-js="dialog"`. There are some additional attributes for the open and close elements.
 
 #### Element Attributes
 
 The toggling element that opens the dialog. Either `<a>` or `<button>`.
 
-Attributes                | Description
---------------------------|-
-`data-js="dialog"`        | Instantiates the toggling method
-`aria-controls=""`        | Targets the id of the dialog
-`aria-expanded="false"`   | Declares target closed/open when toggled
-`data-dialog="open"`      | Designates the primary opening element of the dialog
-`data-dialog="close"`     | Designates the primary closing element of the dialog
-`data-dialog-lock="true"` | Wether to lock screen scrolling when dialog is open. This will only add the class `overflow-hidden` to the body. The class will need to be present in the stylesheet to take effect.
+Attributes                     | Description
+-------------------------------|-
+`data-js="dialog"`             | Instantiates the toggling method
+`aria-controls=""`             | Targets the id of the dialog
+`aria-expanded="false"`        | Declares target closed/open when toggled
+`data-dialog="open"`           | Designates the primary opening element of the dialog
+`data-dialog="close"`          | Designates the primary closing element of the dialog
+`data-dialog-focus-on-close=""`| Designates an alternate element to focus on when the dialog closes. Value of the attribute is the id of the dialog.
+`data-dialog-lock="true"`      | Wether to lock screen scrolling when dialog is open. This will only add the class `overflow-hidden` to the body. The class will need to be present in the stylesheet to take effect.
 
 #### Target Attributes
 
