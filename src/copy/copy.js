@@ -5,20 +5,32 @@
  */
 class Copy {
   /**
-   * Add event listeners
-   *
    * @constructor
+   *
+   * @param   {Object}  s  The settings object, may include 'selector',
+   *                       'aria', 'notifyTimeout', 'before', 'copied',
+   *                       or 'after' attributes.
+   *
+   * @return  {Class}      The constructed instance of Copy.
    */
-  constructor() {
+  constructor(s) {
     // Set attributes
-    this.selector = Copy.selector;
+    this.selector = (s.hasOwnProperty('selector')) ? s.selector : Copy.selector;
 
-    this.aria = Copy.aria;
+    this.selectors = (s.hasOwnProperty('selectors')) ? s.selectors : Copy.selectors;
 
-    this.notifyTimeout = Copy.notifyTimeout;
+    this.aria = (s.hasOwnProperty('aria')) ? s.aria : Copy.aria;
+
+    this.notifyTimeout = (s.hasOwnProperty('notifyTimeout')) ? s.notifyTimeout : Copy.notifyTimeout;
+
+    this.before = (s.hasOwnProperty('before')) ? s.before : Copy.before;
+
+    this.copied = (s.hasOwnProperty('copied')) ? s.copied : Copy.copied;
+
+    this.after = (s.hasOwnProperty('after')) ? s.after : Copy.after;
 
     // Select the entire text when it's focused on
-    document.querySelectorAll(Copy.selectors.TARGETS).forEach(item => {
+    document.querySelectorAll(this.selectors.TARGETS).forEach(item => {
       item.addEventListener('focus', () => this.select(item));
       item.addEventListener('click', () => this.select(item));
     });
@@ -34,13 +46,19 @@ class Copy {
 
       this.target = this.element.dataset.copy;
 
+      this.before(this);
+
       if (this.copy(this.target)) {
+        this.copied(this);
+
         this.element.setAttribute(this.aria, true);
 
         clearTimeout(this.element['timeout']);
 
         this.element['timeout'] = setTimeout(() => {
           this.element.setAttribute(this.aria, false);
+
+          this.after(this);
         }, this.notifyTimeout);
       }
     });
@@ -56,7 +74,7 @@ class Copy {
    * @return  {Boolean}         Wether copy was successful or not
    */
   copy(target) {
-    let selector = Copy.selectors.TARGETS.replace(']', `="${target}"]`);
+    let selector = this.selectors.TARGETS.replace(']', `="${target}"]`);
 
     let input = document.querySelector(selector);
 
@@ -84,18 +102,56 @@ class Copy {
   }
 }
 
-/** The main element selector */
+/**
+ * The main element selector.
+ *
+ * @var {String}
+ */
 Copy.selector = '[data-js*="copy"]';
 
-/** Class selectors */
+/**
+ * The selectors for various elements queried by the utility. Refer to the
+ * source for defaults.
+ *
+ * @var {[type]}
+ */
 Copy.selectors = {
   TARGETS: '[data-copy-target]'
 };
 
-/** Button aria role to toggle */
+/**
+ * Button aria role to toggle
+ *
+ * @var {String}
+ */
 Copy.aria = 'aria-pressed';
 
-/** Timeout for the "Copied!" notification */
+/**
+ * Timeout for the "Copied!" notification
+ *
+ * @var {Number}
+ */
 Copy.notifyTimeout = 1500;
+
+/**
+ * Before hook. Triggers before the click event.
+ *
+ * @var {Function}
+ */
+Copy.before = () => {};
+
+/**
+ * Copied hook. Triggers after a successful the copy event.
+ *
+ * @var {Function}
+ */
+ Copy.copied = () => {};
+
+/**
+ * After hook. Triggers after the click event.
+ *
+ * @var {Function}
+ */
+Copy.after = () => {};
 
 export default Copy;
