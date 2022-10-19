@@ -145,7 +145,7 @@ Copy.before = () => {};
  *
  * @var {Function}
  */
- Copy.copied = () => {};
+Copy.copied = () => {};
 
 /**
  * After hook. Triggers after the click event.
