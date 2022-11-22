@@ -14,7 +14,9 @@ class WebShare {
 
     this.fallback = (s.fallback) ? s.fallback : WebShare.fallback;
 
-    if (navigator.share) {
+    this.fallbackCondition = (s.fallbackCondition) ? s.fallbackCondition : WebShare.fallbackCondition;
+
+    if (this.fallbackCondition()) {
       // Remove fallback aria toggling attributes
       document.querySelectorAll(this.selector).forEach(item => {
         item.removeAttribute('aria-controls');
@@ -69,6 +71,11 @@ WebShare.callback = () => {
 WebShare.fallback = () => {
   if (process.env.NODE_ENV !== 'production')
     console.dir('Fallback!');
-}
+};
+
+/** Conditional function for the Web Share fallback */
+WebShare.fallbackCondition = () => {
+  return navigator.share;
+};
 
 export default WebShare;

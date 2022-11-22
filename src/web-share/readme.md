@@ -1,6 +1,6 @@
 # Web Share
 
-The Web Share Utility invokes the [`navigator.share()`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) api when the toggling element is clicked using data set to the `data-web-share` attribute. A callback can be set for when a successful share is made and a fallback function can be set for when the browser does not support `navigator.share()`.
+The Web Share Utility invokes the [`navigator.share()`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) API when the toggling element is clicked using data set to the `data-web-share` attribute. The following options are available for configuration; a callback can be set for when a successful share is made, a fallback function can be set for when the browser does not support `navigator.share()`, and a condition for when to trigger fallback versus using the Navigator Share API.
 
 ## Usage
 
